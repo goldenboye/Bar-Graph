@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .d_hover:hover {
+color: #494949 !important;
+border-radius: 50px;
+border-color: #494949 !important;
+transition: all 0.3s ease 0s;
+}
+        </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SimpleAdd</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" charset="utf-8"></script>
+
+</head>
+
+<body style="background-color: #dfe3ec ">
+
+  <form>
+    Enter a number between 5-25<br>
+    <input id="test1" type="text">
+    <input type="button" value="Plot Graph" class="d_hover" onclick="adddata()">
+  </form>
+
+  <canvas id="myChart"></canvas>
+  <script type="text/javascript">
+
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+
+    function adddata() {
+      let test1 = document.getElementById("test1").value;
+
+    
+      myChart.data.datasets[0].data[0] = test1;
+      myChart.update();
+    }
+
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["Bloo"],
+        datasets: [{
+          label: 'My Number',
+          data: [test1],
+          backgroundColor: [
+            'rgba(140, 159, 202, 0.87)'
+          ],
+          borderColor: [
+            'rgba(21, 29, 45, 0.87)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
