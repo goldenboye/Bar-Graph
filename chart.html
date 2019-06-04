@@ -22,8 +22,16 @@ transition: all 0.3s ease 0s;
 <body style="background-color: #dfe3ec ">
 
   <form>
-    Enter a number between 5-25<br>
-    <input id="test1" type="text">
+    Enter 1st number between 5-25<br>
+    <input id="test1" type="text"><br/>
+    Enter 2nd number between 5-25<br>
+    <input id="test2" type="text"><br/>
+    Enter 3rd number between 5-25<br>
+    <input id="test3" type="text"><br/>
+    Enter 4th number between 5-25<br>
+    <input id="test4" type="text"><br/>
+    Enter 5th number between 5-25<br>
+    <input id="test5" type="text"><br/>
     <input type="button" value="Plot Graph" class="d_hover" onclick="adddata()">
   </form>
 
@@ -35,24 +43,42 @@ transition: all 0.3s ease 0s;
 
     function adddata() {
       let test1 = document.getElementById("test1").value;
+      let test2 = document.getElementById("test2").value;
+      let test3 = document.getElementById("test3").value;
+      let test4 = document.getElementById("test4").value;
+      let test5 = document.getElementById("test5").value;
+      
 
     
       myChart.data.datasets[0].data[0] = test1;
+      myChart.data.datasets[0].data[1] = test2;
+      myChart.data.datasets[0].data[2] = test3;
+      myChart.data.datasets[0].data[3] = test4;
+      myChart.data.datasets[0].data[4] = test5;
+     
       myChart.update();
     }
 
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ["Bloo"],
+        labels: ["Purple","Pink","Blue","Yellow","Orange"],
         datasets: [{
-          label: 'My Number',
-          data: [test1],
+          label: 'Numbers',
+          data: [test1,test2,test3,test4,test5],
           backgroundColor: [
-            'rgba(140, 159, 202, 0.87)'
+            'rgba(140, 159, 202, 0.87)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
           ],
           borderColor: [
-            'rgba(21, 29, 45, 0.87)'
+            'rgba(21, 29, 45, 0.87)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 159, 64, 1)'
           ],
           borderWidth: 1
         }]
